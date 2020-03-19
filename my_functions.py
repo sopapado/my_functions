@@ -47,6 +47,7 @@ def skew_gauss(x,a,b,c1,c2):
 
     c = np.linspace(c1,c2,len(x))
     y = a*np.exp(-(x-b)**2/(2*c**2))
+    t = 1
     return y
 
 def lorentz(x,a,b,c):
