@@ -1,0 +1,9 @@
+README.md
+setup.py
+my_functions/__init__.py
+my_functions/my_functions.py
+my_functions.egg-info/PKG-INFO
+my_functions.egg-info/SOURCES.txt
+my_functions.egg-info/dependency_links.txt
+my_functions.egg-info/not-zip-safe
+my_functions.egg-info/top_level.txt
