@@ -2,6 +2,10 @@ import pickle5 as pickle
 import matplotlib.pyplot as plt
 import numpy as np
 
+def print_test():
+    print('cool')
+
+
 def counts2power(count_freq,lamda):
 
     #lamda given in m
