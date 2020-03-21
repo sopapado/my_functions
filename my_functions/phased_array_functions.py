@@ -768,4 +768,5 @@ def read_2D_comsol(filename):
     y = np.asarray(y).reshape((n,n))/1e-9
     Ex = np.asarray(Ex).reshape((n,n))
     Ey = np.asarray(Ey).reshape((n,n))
+    
     return x, y, Ex, Ey
