@@ -41,7 +41,7 @@ def save_fig(fig,filename):
     #f.write("new_manager.canvas.figure = figx\n")
     #f.write("figx.set_canvas(new_manager.canvas)\n")
     #fig.clf()
-    f.write("copyfig.copyfig()\n")
+    f.write("copyfig.copyfig(figx)\n")
     f.write("plt.show()\n")
     
 def skew_gauss(x,a,b,c1,c2):
