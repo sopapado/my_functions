@@ -34,6 +34,10 @@ def save_fig(fig,filename):
     f.write("import pickle5 as pickle\n")
     f.write("import matplotlib.pyplot as plt\n")
     f.write("import addcopyfighandler as copyfig\n")
+    try:
+        filename = filename.split( '\\')[-1]
+    except: IndexError
+    
     file_string = "figx = pickle.load(open(r'"+filename+".fig.pickle','rb'))"
     f.write(file_string + '\n')
     #f.write("dummy = plt.figure()\n")
@@ -48,7 +52,7 @@ def skew_gauss(x,a,b,c1,c2):
 
     c = np.linspace(c1,c2,len(x))
     y = a*np.exp(-(x-b)**2/(2*c**2))
-    t = 1
+    
     return y
 
 def lorentz(x,a,b,c):
