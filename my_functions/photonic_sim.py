@@ -92,6 +92,7 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
         k2 = 1j*(-x_layer*np.cos(thetai[i])+y*np.sin(thetai[i]))*k*ns_new[i]
 
         if pol == 'p':
+
             Ec0x = -np.sin(thetai[i])*exp(k1)
             Ec1x = -np.sin(thetai[i])*exp(k2)
             Ec0y = np.cos(thetai[i])*exp(k1)
@@ -114,7 +115,6 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
             layer_hfieldy = amps[2*i]*Hc0y + amps[2*i+1]*Hc1y
             layer_hfieldz = amps[2*i]*Hc0z + amps[2*i+1]*Hc1z
                  
-
             lefx = list(layer_efieldx)
             lefy = list(layer_efieldy)
             lefz = list(layer_efieldz)
@@ -122,7 +122,6 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
             lhfx = list(layer_hfieldx)
             lhfy = list(layer_hfieldy)
             lhfz = list(layer_hfieldz)
-
 
             Ex = Ex + lefx 
             Ey = Ey + lefy
@@ -133,6 +132,7 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
             Hz = Hz + lhfz 
         
         if pol == 's' : 
+
             Ec0x = np.zeros(n)
             Ec1x = np.zeros(n)
             Ec0y = np.zeros(n)
@@ -155,7 +155,6 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
             layer_hfieldy = amps[2*i]*Hc0y + amps[2*i+1]*Hc1y
             layer_hfieldz = amps[2*i]*Hc0z + amps[2*i+1]*Hc1z
                  
-
             lefx = list(layer_efieldx)
             lefy = list(layer_efieldy)
             lefz = list(layer_efieldz)
@@ -163,7 +162,6 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
             lhfx = list(layer_hfieldx)
             lhfy = list(layer_hfieldy)
             lhfz = list(layer_hfieldz)
-
 
             Ex = Ex + lefx 
             Ey = Ey + lefy
@@ -174,10 +172,6 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
             Hz = Hz + lhfz 
             
 
-
-
-    x_plot = list(map(float, x_plot)) 
-
     Ex = list(map(complex, Ex))
     Ey = list(map(complex, Ey))
     Ez = list(map(complex, Ez))
@@ -185,6 +179,7 @@ def field_distribution(lamda, ns, ds, thetai, y0, amps, dx,pol):
     Hy = list(map(complex, Hy))
     Hz = list(map(complex, Hz))
 
+    x_plot = list(map(float, x_plot)) 
     nx = list(map(complex, nx))
 
 
@@ -200,6 +195,7 @@ def plot_distribution(E,H, nx, x, lamda, filename ):
     fig,ax1 = plt.subplots(figsize=(10.0,4.0))
     ax1.plot(np.asarray(x)/1e-9,E, color = rgb, linewidth = 3,label = '$|E|^2$')
     ax1.plot(np.asarray(x)/1e-9,H, color = 'gray', linewidth = 2,linestyle = '--',label = '$|H|^2$')
+    ax1.set_ylim(0)
     plt.legend()
     ax2 = ax1.twinx()
     nx = np.squeeze(nx)
@@ -380,6 +376,7 @@ def amp_distribution(lamda, ns, ds,pol, theta_init, linit, amp_init, x0, y0):
         k2r = 1j*(-x*np.cos(thetar)+y*np.sin(thetar))*k*nr
 
         if pol == 'p' :
+
             a11 = np.cos(thetal)*exp(k1l)
             a12 = -np.cos(thetal)*exp(k2l)
             a13 = -np.cos(thetar)*exp(k1r)
@@ -424,7 +421,7 @@ def amp_distribution(lamda, ns, ds,pol, theta_init, linit, amp_init, x0, y0):
 
     # now we have a y = Ax  system to solve 
     # but we need to take away two columns of initiation
-    # we form then square matrix Asq
+    # we form then a square matrix Asq
 
 
     Asq = A[:,1:-1]
