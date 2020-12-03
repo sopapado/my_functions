@@ -31,7 +31,7 @@ def save_fig(fig,filename):
     pickle.dump(fig, open( filename + '.fig.pickle', 'wb'))
     f = open(filename+'.pyx',"w+")
     fig.clf()
-    f.write("import pickle5 as pickle\n")
+    f.write("import pickle as pickle\n")
     f.write("import matplotlib.pyplot as plt\n")
     f.write("import addcopyfighandler as copyfig\n")
     try:
